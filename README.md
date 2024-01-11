@@ -48,3 +48,22 @@ $ flutter pub run flutter_native_splash:create
 ```bash
 $  flutter pub run intl_utils:generate
 ```    
+# Project Overview
+
+I have strategically incorporated key components and design patterns to establish a robust and maintainable codebase for this Flutter project. Here's an overview of the key aspects:
+
+- **Dependency Injection:** Utilizing the Provider package for dependency injection to promote scalability and modularity.
+
+- **State Management:** Implementing the FlutterBloc pattern with Cubit for organized and asynchronous data handling.
+
+- **Architecture:** Adhering to the Model-View-Controller (MVC) paradigm, the project includes dedicated classes for repositories and API interactions.
+
+- **Networking:** Efficiently managing networking tasks through the Dio package, providing a flexible solution for handling network requests.
+
+- **Asynchronous Programming:** Extensively using asynchronous programming techniques, such as Futures and awaits, for tasks like fetching themes, locales, and items.
+
+- **Localization:** Integrating localization features to offer a seamless multilingual experience for users.
+
+- **Navigation:** Streamlining the navigation process using the auto_route package, ensuring a clear and maintainable structure for handling different app screens.
+
+- **Local Storage:** Implementing the SolutionStorage class, leveraging Hive for local storage functionalities. This enables the persistent storage and retrieval of theme and locale preferences.
