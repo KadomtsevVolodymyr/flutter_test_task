@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_test_task/presentation/detail_screen/detail_screen.dart';
-import 'package:flutter_test_task/presentation/list_screen/list_screen.dart';
-import 'package:flutter_test_task/data/model/item_model.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_test_task/presentation/menu_screen/menu_screen.dart';
+import 'package:flutter_test_task/presentation/store_screen/store_screen.dart';
 
 part 'app_router.gr.dart';
 
@@ -11,13 +9,13 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(
-          page: DetailRoute.page,
-          path: DetailScreen.path,
+          page: MenuRoute.page,
+          path: MenuScreen.path,
+          initial: true,
         ),
         AutoRoute(
-          page: ListRoute.page,
-          path: ListScreen.path,
-          initial: true,
+          page: StoreRoute.page,
+          path: StoreScreen.path,
         ),
       ];
 }

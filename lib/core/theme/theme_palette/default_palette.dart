@@ -24,4 +24,14 @@ class DefaultPalette {
   static const blackBackground = Color(0xFF000000);
 
   static const white = Color(0xFFFFFFFF);
+
+  static const grey = Color(0xFF4D4D4D);
+
+  static const Color primaryBackgroundColor = Color(0xFF0C0C28);
+  static const Color secondaryBackgroundColor = Color(0xFF1D1D44);
+  static const Color borderColorStart = Color(0xFF07D5FE);
+  static const Color borderColorEnd = Color(0xFF7236DA);
+  static const Color blackTransparent = Color(0x99000000);
+  static const Color blueBorder = Color(0xFF1A8BC0);
+  static const Color blackType = Color(0xFF391500);
 }

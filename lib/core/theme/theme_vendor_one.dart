@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_task/core/theme/solution_theme.dart';
 import 'package:flutter_test_task/core/theme/theme_palette/default_palette.dart';
+import 'package:flutter_test_task/extensions/num.dart';
+import 'package:flutter_test_task/generated/assets/fonts.gen.dart';
 
 abstract class VendorOneCoreTheme implements SolutionTheme {
   @override
@@ -51,93 +53,92 @@ class VendorThemeOneLight extends VendorOneCoreTheme {
               BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
         ),
       ),
-      textTheme: const TextTheme(
+      textTheme: TextTheme(
         displayLarge: TextStyle(
           color: DefaultPalette.white,
-          fontWeight: FontWeight.w700,
-          fontSize: 24,
+          fontWeight: FontWeight.w400,
+          fontSize: 23.0.s,
+          fontFamily: FontFamily.amarante,
         ),
         displayMedium: TextStyle(
-          color: DefaultPalette.blackBackground,
-          fontWeight: FontWeight.w600,
-          fontSize: 15,
-          height: 1,
+          color: DefaultPalette.white,
+          fontWeight: FontWeight.w400,
+          fontSize: 16.0.s,
+          fontFamily: FontFamily.alatsi,
         ),
         displaySmall: TextStyle(
-          color: DefaultPalette.blackBackground,
+          color: DefaultPalette.white,
           fontWeight: FontWeight.w400,
-          fontSize: 14,
-          height: 16 / 14,
+          fontSize: 15.0.s,
+          fontFamily: FontFamily.amarante,
         ),
         headlineLarge: TextStyle(
-          color: DefaultPalette.blackBackground,
-          fontWeight: FontWeight.w700,
-          height: 20 / 17,
-          fontSize: 17,
+          color: DefaultPalette.white,
+          fontWeight: FontWeight.w400,
+          fontSize: 20.0.s,
+          fontFamily: FontFamily.alatsi,
         ),
         headlineMedium: TextStyle(
-          color: DefaultPalette.blackBackground,
-          fontStyle: FontStyle.normal,
-          fontWeight: FontWeight.w700,
-          fontSize: 16,
-          height: 19 / 16,
+          color: DefaultPalette.white,
+          fontWeight: FontWeight.w400,
+          fontSize: 18.0.s,
+          fontFamily: FontFamily.alatsi,
         ),
-        headlineSmall: TextStyle(
-          color: DefaultPalette.blackBackground,
-          fontWeight: FontWeight.w700,
-          fontStyle: FontStyle.normal,
-          height: 17 / 14,
-          fontSize: 14,
+        headlineSmall: const TextStyle(
+          color: DefaultPalette.blackType,
+          fontWeight: FontWeight.w400,
+          fontFamily: FontFamily.alatsi,
+          fontSize: 20,
         ),
-        titleLarge: TextStyle(
-          color: DefaultPalette.blackBackground,
-          fontWeight: FontWeight.w600,
-          height: 12 / 12,
-          fontSize: 12,
+        titleLarge: const TextStyle(
+          color: DefaultPalette.white,
+          fontWeight: FontWeight.w400,
+          fontSize: 20,
+          fontFamily: FontFamily.amarante,
         ),
-        titleMedium: TextStyle(
+        titleMedium: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w700,
           fontSize: 15,
           height: 17 / 15,
         ),
-        titleSmall: TextStyle(
+        titleSmall: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w600,
           fontSize: 13,
           height: 16 / 13,
         ),
-        labelLarge: TextStyle(
+        labelLarge: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w500,
           fontSize: 13,
           height: 16 / 13,
         ),
-        labelMedium: TextStyle(
+        labelMedium: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w500,
           fontSize: 15,
           height: 18 / 15,
         ),
-        labelSmall: TextStyle(
+        labelSmall: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontSize: 20,
           fontWeight: FontWeight.w700,
           height: 24 / 22,
         ),
-        bodyLarge: TextStyle(
+        bodyLarge: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w700,
           fontSize: 28,
           height: 28 / 28,
         ),
-        bodyMedium: TextStyle(
+        bodyMedium: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w400,
           fontSize: 14,
           height: 20 / 14,
         ),
-        bodySmall: TextStyle(
+        bodySmall: const TextStyle(
           color: DefaultPalette.blackBackground,
           fontWeight: FontWeight.w600,
           fontSize: 14,

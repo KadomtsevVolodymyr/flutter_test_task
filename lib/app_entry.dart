@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test_task/core/theme/theme_container.dart';
 import 'package:flutter_test_task/domain/repositories/solution_repository_interface.dart';
 import 'package:flutter_test_task/generated/l10n.dart';
@@ -33,39 +34,43 @@ class AppEntry extends StatelessWidget {
     FlutterNativeSplash.remove();
     return MultiProvider(
       providers: SolutionInjection.getDiList(context),
-      child: Builder(
-        builder: (BuildContext context) {
-          return ValueProvider<ThemeMode, ThemeMode>(
-            shouldNotify: (newMode, oldMode) => newMode.index != oldMode.index,
-            future: getThemeMode(context),
-            initValue: ThemeMode.system,
-            builder: (_, themeMode) {
-              return ValueProvider<Locale, Locale>(
-                shouldNotify: (newMode, oldMode) =>
-                    newMode.languageCode != oldMode.languageCode,
-                future: getLocale(context),
-                initValue: const Locale('en', 'US'),
-                builder: (context, locale) {
-                  return MaterialApp.router(
-                    title: 'Silverstone',
-                    theme: ThemeFactory.lightTheme.themeData,
-                    themeMode: themeMode,
-                    routerDelegate: _router.delegate(),
-                    routeInformationParser: _router.defaultRouteParser(),
-                    localizationsDelegates: const [
-                      S.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                    ],
-                    supportedLocales: S.delegate.supportedLocales,
-                    locale: locale,
-                  );
-                },
-              );
-            },
-          );
-        },
+      child: ScreenUtilInit(
+        designSize: const Size(393, 852),
+        child: Builder(
+          builder: (BuildContext context) {
+            return ValueProvider<ThemeMode, ThemeMode>(
+              shouldNotify: (newMode, oldMode) =>
+                  newMode.index != oldMode.index,
+              future: getThemeMode(context),
+              initValue: ThemeMode.system,
+              builder: (_, themeMode) {
+                return ValueProvider<Locale, Locale>(
+                  shouldNotify: (newMode, oldMode) =>
+                      newMode.languageCode != oldMode.languageCode,
+                  future: getLocale(context),
+                  initValue: const Locale('en', 'US'),
+                  builder: (context, locale) {
+                    return MaterialApp.router(
+                      title: 'Silverstone',
+                      theme: ThemeFactory.lightTheme.themeData,
+                      themeMode: themeMode,
+                      routerDelegate: _router.delegate(),
+                      routeInformationParser: _router.defaultRouteParser(),
+                      localizationsDelegates: const [
+                        S.delegate,
+                        GlobalMaterialLocalizations.delegate,
+                        GlobalWidgetsLocalizations.delegate,
+                        GlobalCupertinoLocalizations.delegate,
+                      ],
+                      supportedLocales: S.delegate.supportedLocales,
+                      locale: locale,
+                    );
+                  },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

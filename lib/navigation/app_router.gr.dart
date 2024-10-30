@@ -15,72 +15,105 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    DetailRoute.name: (routeData) {
-      final args = routeData.argsAs<DetailRouteArgs>();
+    MenuRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: DetailScreen(
-          key: args.key,
-          item: args.item,
-        ),
+        child: const MenuScreen(),
       );
     },
-    ListRoute.name: (routeData) {
+    SlotLargeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ListScreen(),
+        child: const SlotLargeScreen(),
+      );
+    },
+    SlotSmallRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SlotSmallScreen(),
+      );
+    },
+    StoreRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StoreScreen(),
+      );
+    },
+    StoryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StoryScreen(),
       );
     },
   };
 }
 
 /// generated route for
-/// [DetailScreen]
-class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
-  DetailRoute({
-    Key? key,
-    required Item item,
-    List<PageRouteInfo>? children,
-  }) : super(
-          DetailRoute.name,
-          args: DetailRouteArgs(
-            key: key,
-            item: item,
-          ),
+/// [MenuScreen]
+class MenuRoute extends PageRouteInfo<void> {
+  const MenuRoute({List<PageRouteInfo>? children})
+      : super(
+          MenuRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'DetailRoute';
+  static const String name = 'MenuRoute';
 
-  static const PageInfo<DetailRouteArgs> page = PageInfo<DetailRouteArgs>(name);
-}
-
-class DetailRouteArgs {
-  const DetailRouteArgs({
-    this.key,
-    required this.item,
-  });
-
-  final Key? key;
-
-  final Item item;
-
-  @override
-  String toString() {
-    return 'DetailRouteArgs{key: $key, item: $item}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [ListScreen]
-class ListRoute extends PageRouteInfo<void> {
-  const ListRoute({List<PageRouteInfo>? children})
+/// [SlotLargeScreen]
+class SlotLargeRoute extends PageRouteInfo<void> {
+  const SlotLargeRoute({List<PageRouteInfo>? children})
       : super(
-          ListRoute.name,
+          SlotLargeRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ListRoute';
+  static const String name = 'SlotLargeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SlotSmallScreen]
+class SlotSmallRoute extends PageRouteInfo<void> {
+  const SlotSmallRoute({List<PageRouteInfo>? children})
+      : super(
+          SlotSmallRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SlotSmallRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StoreScreen]
+class StoreRoute extends PageRouteInfo<void> {
+  const StoreRoute({List<PageRouteInfo>? children})
+      : super(
+          StoreRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StoreRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StoryScreen]
+class StoryRoute extends PageRouteInfo<void> {
+  const StoryRoute({List<PageRouteInfo>? children})
+      : super(
+          StoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StoryRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

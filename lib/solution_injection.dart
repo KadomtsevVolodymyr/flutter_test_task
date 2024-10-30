@@ -3,15 +3,17 @@ import 'package:flutter_test_task/configs/app_config.dart';
 import 'package:flutter_test_task/configs/environment/environment_helper.dart';
 import 'package:flutter_test_task/configs/environment/environment_service.dart';
 import 'package:flutter_test_task/configs/environment/environment_variables.dart';
+import 'package:flutter_test_task/data/datasource/local/facade/shared_storage_inreface.dart';
 import 'package:flutter_test_task/data/datasource/local/facade/solution_storage_interface.dart';
+import 'package:flutter_test_task/data/datasource/local/shared_storage.dart';
 import 'package:flutter_test_task/data/datasource/local/solution_storage.dart';
 import 'package:flutter_test_task/data/datasource/network/api/item/item_api.dart';
 import 'package:flutter_test_task/data/datasource/network/api/item/item_api_interface.dart';
 import 'package:flutter_test_task/data/datasource/network/services/network_service/network_service.dart';
 import 'package:flutter_test_task/data/datasource/network/services/network_service/network_service_interface.dart';
-import 'package:flutter_test_task/data/repositories/item_repository.dart';
+import 'package:flutter_test_task/data/repositories/coin_repository.dart';
 import 'package:flutter_test_task/data/repositories/solution_repository.dart';
-import 'package:flutter_test_task/domain/repositories/item_repository_interface.dart';
+import 'package:flutter_test_task/domain/repositories/coin_repository_interface.dart';
 import 'package:flutter_test_task/domain/repositories/solution_repository_interface.dart';
 import 'package:flutter_test_task/utils/hive_helper.dart';
 import 'package:hive/hive.dart';
@@ -40,6 +42,7 @@ class SolutionInjection {
     return [
       Provider.value(value: AppConfig()),
       Provider.value(value: HiveHelper()),
+      Provider.value(value: SharedStorage()),
     ];
   }
 
@@ -103,14 +106,14 @@ class SolutionInjection {
         ) =>
             ItemApi(networkService),
       ),
-      ProxyProvider<IItemApi, IItemRepository>(
+      ProxyProvider<SharedStorage, ICoinRepository>(
         update: (
           BuildContext context,
-          IItemApi itemApi,
-          IItemRepository? hodimoRepository,
+          SharedStorage localStorage,
+          ICoinRepository? coinRepository,
         ) =>
-            ItemRepository(
-          itemApi,
+            CoinRepository(
+          localStorage,
         ),
       ),
       ProxyProvider<ISolutionStorage, ISolutionRepository>(
